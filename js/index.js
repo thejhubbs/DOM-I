@@ -18,7 +18,7 @@ const siteContent = {
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "about-h4": "About",
     "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "middle-img-src": "img/mid-page-accent.jpg",
+    "img-src": "img/mid-page-accent.jpg",
     "services-h4": "Services",
     "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "product-h4": "Product",
@@ -37,9 +37,14 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+function setURLSrc(id, link) {
+  let img = document.getElementById(id);
+  img.setAttribute('src', siteContent[link]['img-src']);
+}
+
+setURLSrc('logo-img', 'nav');
+setURLSrc('cta-img', 'cta');
+setURLSrc('middle-img', 'main-content');
 
 var navigationLinks = document.getElementsByTagName("nav")[0].getElementsByTagName('a');
 for (let i = 0; i < navigationLinks.length; i++) {
@@ -49,8 +54,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
 document.getElementsByClassName('cta')[0].getElementsByTagName('h1')[0].innerHTML = siteContent['cta']['h1'];
 document.getElementsByClassName('cta')[0].getElementsByTagName('button')[0].innerHTML = siteContent['cta']['button'];
 
-let header = document.getElementById("cta-img");
-header.setAttribute('src', siteContent["cta"]["img-src"])
+var pageSections = ['features', 'about', 'services', 'product', 'vision'];
+var textContents = document.getElementsByClassName('text-content');
+for(let i=0; i < textContents.length; i++) {
+  textContents[i].getElementsByTagName('h4')[0].innerHTML = siteContent['main-content'][`${pageSections[i]}-h4`];
+  textContents[i].getElementsByTagName('p')[0].innerHTML = siteContent['main-content'][`${pageSections[i]}-content`];
+}
 
 
 
