@@ -61,12 +61,27 @@ for(let i=0; i < textContents.length; i++) {
   textContents[i].getElementsByTagName('p')[0].innerHTML = siteContent['main-content'][`${pageSections[i]}-content`];
 }
 
+var contactSection = document.getElementsByClassName('contact')[0];
+contactSection.getElementsByTagName('h4')[0].innerHTML = siteContent['contact']['contact-h4'];
+contactSection.getElementsByTagName('p')[0].innerHTML = siteContent['contact']['address'];
+contactSection.getElementsByTagName('p')[1].innerHTML = siteContent['contact']['phone'];
+contactSection.getElementsByTagName('p')[2].innerHTML = siteContent['contact']['email'];
 
 
+document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0].innerHTML = siteContent['footer']['copyright'];
 
+var newLink = document.createElement('a');
+newLink.innerHTML = "First";
 
+var lastLink = document.createElement('a');
+lastLink.innerHTML = "Last";
+document.getElementsByTagName("nav")[0].appendChild( newLink ) ;
+document.getElementsByTagName("nav")[0].prepend( lastLink ) ;
 
-
+var links = document.getElementsByTagName('a');
+for(let i=0; i < links.length; i++){
+  links[i].setAttribute('style', 'color:green');
+}
 
 
 
