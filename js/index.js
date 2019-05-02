@@ -71,10 +71,9 @@ contactSection.getElementsByTagName('p')[2].innerHTML = siteContent['contact']['
 document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0].innerHTML = siteContent['footer']['copyright'];
 
 var newLink = document.createElement('a');
-newLink.innerHTML = "First";
-
+newLink.innerHTML = "Last";
 var lastLink = document.createElement('a');
-lastLink.innerHTML = "Last";
+lastLink.innerHTML = "First";
 document.getElementsByTagName("nav")[0].appendChild( newLink ) ;
 document.getElementsByTagName("nav")[0].prepend( lastLink ) ;
 
