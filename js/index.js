@@ -41,9 +41,25 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
-  var navigationLinks = document.getElementsByTagName("nav")[0].getElementsByTagName('a');
-  for (let i = 0; i < navigationLinks.length; i++) {
-    navigationLinks[i].innerHTML = siteContent['nav'][`nav-item-${i+1}`];
-  }
+var navigationLinks = document.getElementsByTagName("nav")[0].getElementsByTagName('a');
+for (let i = 0; i < navigationLinks.length; i++) {
+  navigationLinks[i].innerHTML = siteContent['nav'][`nav-item-${i + 1}`];
+}
+
+document.getElementsByClassName('cta')[0].getElementsByTagName('h1')[0].innerHTML = siteContent['cta']['h1'];
+document.getElementsByClassName('cta')[0].getElementsByTagName('button')[0].innerHTML = siteContent['cta']['button'];
+
+let header = document.getElementById("cta-img");
+header.setAttribute('src', siteContent["cta"]["img-src"])
+
+
+
+
+
+
+
+
+
+
 
 
